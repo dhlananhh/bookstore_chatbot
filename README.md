@@ -15,31 +15,23 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 - **Hệ điều hành**: Windows, macOS, hoặc Linux
 - **Trình duyệt web**: Chrome, Firefox, hoặc bất kỳ trình duyệt hiện đại nào
 
-## Cài đặt
+## Cách khởi động và sử dụng Bookstore Chatbot
 
-### Bước 1: Chuẩn bị cơ sở dữ liệu
-1. Cài đặt MariaDB và đảm bảo dịch vụ đang chạy.
-2. Tạo các database và nhập dữ liệu từ các file SQL:
-   ```bash
-   mysql -u root -p < satancra_userService.sql.txt
-   mysql -u root -p < satancra_bookService.sql.txt
-   mysql -u root -p < satancra_cartService.sql.txt
-   ```
-3. Cập nhật thông tin kết nối database (username, password) trong file `app/database.py`.
-
-### Bước 2: Cài đặt Ollama
+### Bước 1: Cài đặt Ollama
 1. Tải và cài đặt Ollama từ [trang chính thức](https://ollama.ai/).
 2. Pull mô hình `mxbai-embed-large`:
    ```bash
    ollama pull mxbai-embed-large
    ```
 
-### Bước 3: Cài đặt môi trường Python
+### Bước 2: Cài đặt môi trường Python
 1. Clone hoặc giải nén dự án vào một thư mục (ví dụ: `bookstore_chatbot`).
 2. Tạo môi trường ảo:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # Trên Windows: venv\Scripts\activate
+   venv\Scripts\activate         # Windows
+   # hoặc
+   source venv/bin/activate      # macOS/Linux
    ```
 3. Cài đặt các thư viện cần thiết:
    ```bash
@@ -123,19 +115,5 @@ bookstore_chatbot/
 
 ## Giấy phép
 Dự án được phát hành dưới [MIT License](LICENSE).
-
----
-
-### Giải thích nội dung README
-- **Giới thiệu**: Mô tả ngắn gọn về dự án và tính năng chính.
-- **Yêu cầu hệ thống**: Liệt kê các công cụ cần thiết để chạy ứng dụng.
-- **Cài đặt**: Hướng dẫn chi tiết từng bước để thiết lập môi trường và cơ sở dữ liệu.
-- **Chạy ứng dụng**: Cách khởi động server và truy cập giao diện.
-- **Sử dụng**: Hướng dẫn người dùng cách tương tác với chatbot.
-- **Cách hoạt động**: Giải thích ngắn gọn về quy trình xử lý của hệ thống.
-- **Khắc phục sự cố**: Các lỗi phổ biến và cách khắc phục.
-- **Giới hạn**: Làm rõ các hạn chế của phiên bản hiện tại.
-- **Đóng góp và liên hệ**: Hướng dẫn cho người muốn cải thiện dự án.
-- **Giấy phép**: Đề cập đến giấy phép sử dụng mã nguồn.
 
 ---
