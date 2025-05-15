@@ -1,0 +1,26 @@
+/* Tùy chỉnh thanh cuộn */
+#chatMessages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+  border-radius: 8px;
+}
+
+#chatMessages::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+.book-card {
+  transition: transform 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
