@@ -32,7 +32,7 @@ async function sendMessage() {
                     <p class="text-sm text-gray-600">Tác giả: ${book.author || 'Không rõ'}</p>
                     <p class="text-sm text-gray-600">Giá: ${book.price} USD</p>
                     <p class="text-sm text-gray-600">Danh mục: ${book.category || 'Không rõ'}</p>
-                    <p class="text-sm text-gray-700">Mô tả sách: ${book.description || 'Không có mô tả'}</p>
+                    <p class="text-sm text-gray-700">Mô tả: ${book.description || 'Không có mô tả'}</p>
                 </div>`;
         });
         reply += '</div>';
