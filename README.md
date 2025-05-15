@@ -22,7 +22,7 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 
 ### Bước 1: Cài đặt Ollama
 
-1. Tải và cài đặt Ollama từ [trang chính thức](https://ollama.ai/).
+1. Tải và cài đặt Ollama từ [trang chính thức](https://ollama.com/).
 2. Pull mô hình `mxbai-embed-large`:
    ```bash
    ollama pull mxbai-embed-large
