@@ -1,14 +1,18 @@
 import mysql.connector
 from mysql.connector import Error
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host="hieutrollmc.tino.page",
-            user="satancra_bookstore",
-            password="sEVXUF7ZsCrdXY9Ehzr3",
-            database="satancra_bookService",
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME"),
         )
         return connection
     except Error as e:
