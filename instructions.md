@@ -2,7 +2,6 @@
 
 ollama serve
 
-
 # Chạy server FastAPI:
 
 cd bookstore_chatbot
