@@ -28,6 +28,7 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
    ```bash
    .\OllamaSetup.exe /DIR=E:\Ollama
    ```
+   
 2. Pull mô hình `mxbai-embed-large`:
 
    ```bash
@@ -75,6 +76,7 @@ bookstore_chatbot/
    ```bash
    ollama serve
    ```
+
 2. **Chạy server FastAPI**:
 
    ```bash
@@ -82,7 +84,8 @@ bookstore_chatbot/
    uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
 
-Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đến bước truy cập giao diện ở 2 bước tiếp theo.
+Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đến 2 bước tiếp theo; mà chỉ cần quay lại trang http://localhost:3000/ để truy cập giao diện chatbot
+
 3. **Truy cập giao diện**:
    Mở trình duyệt và truy cập:
 
@@ -98,11 +101,11 @@ Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đ
 
 ## Sử dụng chatbot
 
-1. Truy cập giao diện web tại `http://localhost:8000/static/index.html`.
+1. Truy cập giao diện web tại `http://localhost:8000/static/index.html` hoặc `http://localhost:3000/`.
 2. Nhập truy vấn vào ô nhập liệu, ví dụ:
-   - "Sách khoa học viễn tưởng"
-   - "Sách về thám tử"
-   - "Sách dành cho trẻ em"
+   - "Tôi muốn tìm mua Sách khoa học viễn tưởng"
+   - "Tôi muốn đọc vài Sách Lịch sử"
+   - "Tôi muốn nghiên cứu 1 vài Sách Khoa học"
 3. Nhấn nút "Gửi" hoặc phím Enter để nhận gợi ý sách.
 4. Chatbot sẽ hiển thị danh sách sách phù hợp, bao gồm:
    - Tiêu đề
