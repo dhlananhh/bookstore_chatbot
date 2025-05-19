@@ -1,17 +1,9 @@
 import ollama
 import numpy as np
-import os
-from dotenv import load_dotenv
-
-# Tải biến môi trường
-load_dotenv()
 
 
 def get_embedding(text):
-    ollama_host = os.getenv("OLLAMA_HOST", "localhost")
-    ollama_port = os.getenv("OLLAMA_PORT", "11434")
-    client = ollama.Client(host=f"http://{ollama_host}:{ollama_port}")
-    response = client.embeddings(model="mxbai-embed-large", prompt=text)
+    response = ollama.embeddings(model="mxbai-embed-large", prompt=text)
     return response["embedding"]
 
 
