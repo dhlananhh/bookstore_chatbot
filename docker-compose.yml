@@ -1,23 +1,33 @@
-version: "3.8"
-
 services:
-  chatbot:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
+    env_file:
+      - .env
     depends_on:
       - ollama
-    environment:
-      DATABASE_URL: "mysql+mysqlconnector://satancra_bookstore:sEVXUF7ZsCrdXY9Ehzr3@hieutrollmc.tino.page:3306/satancra_bookService"
+    networks:
+      - bookstore-network
+    volumes:
+      - ./app:/app/app
+      - ./static:/app/static
 
   ollama:
-    image: ollama/ollama
+    image: ollama/ollama:latest
     ports:
       - "11434:11434"
     volumes:
-      - ollama_data:/root/.ollama
+      - ollama-data:/root/.ollama
+    networks:
+      - bookstore-network
+    command: bash -c "ollama serve & sleep 5 && ollama pull mxbai-embed-large"
+
+networks:
+  bookstore-network:
+    driver: bridge
 
 volumes:
-  ollama_data:
+  ollama-data:

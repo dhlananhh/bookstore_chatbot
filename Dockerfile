@@ -1,21 +1,23 @@
-# base image
+# Sử dụng image Python chính thức
 FROM python:3.11-slim
 
-# set working directory
+# Thiết lập thư mục làm việc
 WORKDIR /app
 
-# install dependencies
+# Cài đặt các gói hệ thống cần thiết
+RUN apt-get update && apt-get install -y \
+  curl \
+  && rm -rf /var/lib/apt/lists/*
+
+# Sao chép requirements.txt và cài đặt phụ thuộc
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# copy project
-# COPY . .
-COPY app/ app/
-COPY static/ static/
-COPY README.md .
+# Sao chép toàn bộ mã nguồn
+COPY . .
 
-# expose port
+# Mở cổng 8000 cho FastAPI
 EXPOSE 8000
 
-# run command
+# Lệnh chạy ứng dụng
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
