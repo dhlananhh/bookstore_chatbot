@@ -1,6 +1,7 @@
 import ollama
 import numpy as np
 import os
+from dotenv import load_dotenv
 
 # Tải biến môi trường
 load_dotenv()
