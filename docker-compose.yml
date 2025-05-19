@@ -7,3 +7,17 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    depends_on:
+      - ollama
+    environment:
+      DATABASE_URL: "mysql+mysqlconnector://satancra_bookstore:sEVXUF7ZsCrdXY9Ehzr3@hieutrollmc.tino.page:3306/satancra_bookService"
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:
