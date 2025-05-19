@@ -84,13 +84,6 @@ bookstore_chatbot/
 3. **Kiểm tra file .env**:
    Thêm các nội dung về database bookService vô file `.env`:
 
-   ```
-   DB_HOST = hieutrollmc.tino.page
-   DB_USER = satancra_bookstore
-   DB_PASSWORD = sEVXUF7ZsCrdXY9Ehzr3
-   DB_NAME = satancra_bookService
-   ```
-
 Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đến 2 bước tiếp theo; mà chỉ cần quay lại trang http://localhost:3000/ để truy cập giao diện chatbot
 
 4. **Truy cập giao diện**:
