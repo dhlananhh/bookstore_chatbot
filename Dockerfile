@@ -9,7 +9,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # copy project
-COPY . .
+# COPY . .
+COPY app/ app/
+COPY static/ static/
+COPY README.md .
 
 # expose port
 EXPOSE 8000
