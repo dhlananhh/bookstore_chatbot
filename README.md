@@ -23,7 +23,13 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 ### Bước 1: Cài đặt Ollama
 
 1. Tải và cài đặt Ollama từ [trang chính thức](https://ollama.com/).
+   Mặc định, Ollama sẽ tự động lưu ở ổ C. Nếu muốn sử dụng ổ khác để lưu trữ thì mở CMD lên, và gõ lệnh:
+
+   ```bash
+   .\OllamaSetup.exe /DIR=E:\Ollama
+   ```
 2. Pull mô hình `mxbai-embed-large`:
+
    ```bash
    ollama pull mxbai-embed-large
    ```
@@ -75,11 +81,19 @@ bookstore_chatbot/
    cd bookstore_chatbot
    uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
+
+Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đến bước truy cập giao diện ở 2 bước tiếp theo.
 3. **Truy cập giao diện**:
    Mở trình duyệt và truy cập:
 
-   ```
+```
    http://localhost:8000/static/index.html
+```
+
+4. **Có thể test API ở đường dẫn**:
+
+   ```
+   http://localhost:8000/docs
    ```
 
 ## Sử dụng chatbot
