@@ -28,7 +28,6 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
    ```bash
    .\OllamaSetup.exe /DIR=E:\Ollama
    ```
-   
 2. Pull mô hình `mxbai-embed-large`:
 
    ```bash
@@ -76,24 +75,32 @@ bookstore_chatbot/
    ```bash
    ollama serve
    ```
-
 2. **Chạy server FastAPI**:
 
    ```bash
    cd bookstore_chatbot
    uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
+3. **Kiểm tra file .env**:
+   Thêm các nội dung về database bookService vô file `.env`:
+
+   ```
+   DB_HOST = hieutrollmc.tino.page
+   DB_USER = satancra_bookstore
+   DB_PASSWORD = sEVXUF7ZsCrdXY9Ehzr3
+   DB_NAME = satancra_bookService
+   ```
 
 Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đến 2 bước tiếp theo; mà chỉ cần quay lại trang http://localhost:3000/ để truy cập giao diện chatbot
 
-3. **Truy cập giao diện**:
+4. **Truy cập giao diện**:
    Mở trình duyệt và truy cập:
 
 ```
    http://localhost:8000/static/index.html
 ```
 
-4. **Có thể test API ở đường dẫn**:
+5. **Có thể test API ở đường dẫn** (Optional):
 
    ```
    http://localhost:8000/docs
