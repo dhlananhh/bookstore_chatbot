@@ -14,7 +14,6 @@ RUN pip install --no-input -r requirements.txt
 COPY ./app ./app
 COPY .env .
 COPY static ./static
-COPY index.html .
 
 EXPOSE 8000
 
