@@ -1,9 +1,11 @@
 version: "3.8"
 
 services:
-  fastapi_chatbot:
-    image: dhlananh/bookstore-chatbot-app:latest
-    container_name: bookstore_fastapi_app
+  bookstore_chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bookstore_chatbot_service
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -19,7 +21,7 @@ services:
     depends_on:
       - ollama_server
     networks:
-      - chatbot_net
+      - bookstore_network
 
   ollama_server:
     image: ollama/ollama:latest
@@ -30,11 +32,11 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     networks:
-      - chatbot_net
+      - bookstore_network
 
 volumes:
   ollama_data:
 
 networks:
-  chatbot_net:
+  bookstore_network:
     driver: bridge
