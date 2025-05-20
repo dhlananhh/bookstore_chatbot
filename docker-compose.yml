@@ -1,33 +1,40 @@
+version: "3.8"
+
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  fastapi_chatbot:
+    image: dhlananh/bookstore-chatbot-app:latest
+    container_name: bookstore_fastapi_app
+    restart: unless-stopped
     ports:
       - "8000:8000"
-    env_file:
-      - .env
-    depends_on:
-      - ollama
-    networks:
-      - bookstore-network
-    volumes:
-      - ./app:/app/app
-      - ./static:/app/static
+    environment:
+      DB_HOST: "hieutrollmc.tino.page"
+      DB_USER: "satancra_bookstore"
+      DB_PASSWORD: "sEVXUF7ZsCrdXY9Ehzr3"
+      DB_NAME: "satancra_bookService"
 
-  ollama:
+      OLLAMA_API_BASE_URL: http://ollama_server:11434
+      OLLAMA_MODEL_NAME: "nomic-embed-text"
+      OLLAMA_MODEL_EMBEDDING_SIZE: "768"
+    depends_on:
+      - ollama_server
+    networks:
+      - chatbot_net
+
+  ollama_server:
     image: ollama/ollama:latest
+    container_name: bookstore_ollama_server
+    restart: unless-stopped
     ports:
       - "11434:11434"
     volumes:
-      - ollama-data:/root/.ollama
+      - ollama_data:/root/.ollama
     networks:
-      - bookstore-network
-    command: bash -c "ollama serve & sleep 5 && ollama pull mxbai-embed-large"
-
-networks:
-  bookstore-network:
-    driver: bridge
+      - chatbot_net
 
 volumes:
-  ollama-data:
+  ollama_data:
+
+networks:
+  chatbot_net:
+    driver: bridge

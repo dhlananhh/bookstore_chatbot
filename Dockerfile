@@ -1,23 +1,21 @@
-# Sử dụng image Python chính thức
 FROM python:3.11-slim
 
-# Thiết lập thư mục làm việc
+ENV PYTHONUNBUFFERED 1
+ENV PIP_NO_CACHE_DIR=off \
+  PIP_DISABLE_PIP_VERSION_CHECK=on \
+  PIP_DEFAULT_TIMEOUT=100
+
 WORKDIR /app
 
-# Cài đặt các gói hệ thống cần thiết
-RUN apt-get update && apt-get install -y \
-  curl \
-  && rm -rf /var/lib/apt/lists/*
-
-# Sao chép requirements.txt và cài đặt phụ thuộc
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Sao chép toàn bộ mã nguồn
-COPY . .
+RUN pip install --no-input -r requirements.txt
 
-# Mở cổng 8000 cho FastAPI
+COPY ./app ./app
+COPY .env .
+COPY static ./static
+COPY index.html .
+
 EXPOSE 8000
 
-# Lệnh chạy ứng dụng
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
