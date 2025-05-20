@@ -22,6 +22,27 @@ def find_similar_books(query, books, top_k=5):
     similarities = []
 
     for book in books:
+        title = book["title"] or ""
+        author = book["author"] or ""
+        category = book["category"] or ""
+
+        book_embedding = get_embedding(title + " " + author + " " + category)
+        similarity = cosine_similarity(query_embedding, book_embedding)
+        similarities.append((book, similarity))
+
+        book_embedding = get_embedding(title + " " + author)
+        similarity = cosine_similarity(query_embedding, book_embedding)
+        similarities.append((book, similarity))
+
+        book_embedding = get_embedding(author + " " + category)
+        similarity = cosine_similarity(query_embedding, book_embedding)
+        similarities.append((book, similarity))
+
+        price = book["price"] or 0
+        book_embedding = get_embedding(str(price))
+        similarity = cosine_similarity(query_embedding, book_embedding)
+        similarities.append((book, similarity))
+
         description = book["description"] or ""
         book_embedding = get_embedding(description)
         similarity = cosine_similarity(query_embedding, book_embedding)
