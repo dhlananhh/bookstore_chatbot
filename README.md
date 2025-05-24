@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách hàng tìm kiếm và nhận gợi ý các quyển sách phù hợp dựa trên nhu cầu của họ. Ứng dụng sử dụng mô hình embedding `mxbai-embed-large` từ Ollama để tìm kiếm sách dựa trên ngữ nghĩa và kết nối với cơ sở dữ liệu MariaDB để truy xuất thông tin sách.
+Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách hàng tìm kiếm và nhận gợi ý các quyển sách phù hợp dựa trên nhu cầu của họ. Ứng dụng sử dụng embedding model `all-MiniLM-L6-v2` từ Ollama để tìm kiếm sách dựa trên ngữ nghĩa và kết nối với cơ sở dữ liệu MariaDB để truy xuất thông tin sách.
 
 ### Tính năng chính
 
@@ -14,7 +14,7 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 
 - **Python**: 3.10 trở lên
 - **MariaDB**: Phiên bản 10.5 trở lên
-- **Ollama**: Đã cài đặt và pull mô hình `mxbai-embed-large`
+- **Ollama**: Đã cài đặt
 - **Hệ điều hành**: Windows, macOS, hoặc Linux
 - **Trình duyệt web**: Chrome, Firefox, hoặc bất kỳ trình duyệt hiện đại nào
 
@@ -22,16 +22,11 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 
 ### Bước 1: Cài đặt Ollama
 
-1. Tải và cài đặt Ollama từ [trang chính thức](https://ollama.com/).
+Tải và cài đặt Ollama từ [trang chính thức](https://ollama.com/).
    Mặc định, Ollama sẽ tự động lưu ở ổ C. Nếu muốn sử dụng ổ khác để lưu trữ thì mở CMD lên, và gõ lệnh:
 
    ```bash
    .\OllamaSetup.exe /DIR=E:\Ollama
-   ```
-2. Pull mô hình `mxbai-embed-large`:
-
-   ```bash
-   ollama pull mxbai-embed-large
    ```
 
 ### Bước 2: Cài đặt môi trường Python
@@ -128,7 +123,6 @@ Nếu test chatbot trên giao diện trang chủ nhà sách thì không cần đ
   - Đảm bảo MariaDB đang chạy.
 - **Ollama không phản hồi**:
   - Chạy lệnh `ollama serve` trước khi khởi động ứng dụng.
-  - Kiểm tra mô hình `mxbai-embed-large` đã được pull bằng lệnh `ollama list`.
 - **API trả về lỗi**:
   - Kiểm tra log server FastAPI bằng cách chạy `uvicorn` với tùy chọn `--log-level debug`.
 - **Giao diện không tải**:
