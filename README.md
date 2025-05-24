@@ -14,9 +14,9 @@ Chatbot Tư Vấn Sách là một ứng dụng web đơn giản, giúp khách h�
 
 - **Python**: 3.10 trở lên
 - **MariaDB**: Phiên bản 10.5 trở lên
-- **Ollama**: Đã cài đặt
+- **Ollama**: Đã cài đặt trên máy tính
 - **Hệ điều hành**: Windows, macOS, hoặc Linux
-- **Trình duyệt web**: Chrome, Firefox, hoặc bất kỳ trình duyệt hiện đại nào
+- **Trình duyệt web**: Chrome, Firefox, Edge, hoặc bất kỳ trình duyệt hiện đại nào
 
 ## Cách khởi động và sử dụng Bookstore Chatbot
 
